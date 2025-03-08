@@ -1,17 +1,19 @@
 package com.example.checkers;
 
-public class Pawn extends Figure {
+public class Pawn implements Figure {
+    private Color color;
 
-    public Pawn(String color) {
-        super(color);
+    public Pawn(Color color) {
+       this.color = color;
     }
 
+    @Override
+    public Color getColor() {
+        return color;
+    }
+
+    @Override
     public String getSymbol() {
-        if (color.equals("white")) {
-            return "P";
-        } else if (color.equals("black")) {
-            return "p";
-        }
-        return "";
+        return color == Color.BLACK ? "BP" : "WP";
     }
 }

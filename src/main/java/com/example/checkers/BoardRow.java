@@ -6,16 +6,12 @@ import java.util.List;
 public class BoardRow {
     private List<Figure> figures;
 
-    public BoardRow(int size) {
-        this.figures = new ArrayList<>();
+    public BoardRow() {
+        figures = new ArrayList<>();
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < 8; i++) {
             figures.add(new None());
         }
-    }
-
-    public List<Figure> getFigures(){
-        return figures;
     }
 
     public Figure getFigure(int col) {
@@ -24,5 +20,9 @@ public class BoardRow {
 
     public void setFigure(int col, Figure figure) {
        figures.set(col, figure);
+    }
+
+    public List<Figure> getFigures() {
+        return figures;
     }
 }

@@ -1,17 +1,19 @@
 package com.example.checkers;
 
-public class Queen extends Figure {
+public class Queen implements Figure {
+    private Color color;
 
-    public Queen(String color) {
-        super(color);
+    public Queen(Color color) {
+        this.color = color;
     }
 
+    @Override
+    public Color getColor() {
+        return color;
+    }
+
+    @Override
     public String getSymbol() {
-        if (color.equals("white")) {
-            return "Q";
-        } else if (color.equals("black")) {
-            return "q";
-        }
-        return "";
+        return color == Color.BLACK ? "BQ" : "WQ";
     }
 }

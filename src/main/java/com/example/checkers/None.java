@@ -1,12 +1,14 @@
 package com.example.checkers;
 
-public class None extends Figure {
+public class None implements Figure {
 
-    public None() {
-        super("None");
+    @Override
+    public Color getColor() {
+        return Color.NONE;
     }
 
+    @Override
     public String getSymbol() {
-        return " ";
+        return "  ";
     }
 }

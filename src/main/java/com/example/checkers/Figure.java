@@ -1,15 +1,10 @@
 package com.example.checkers;
 
-abstract class Figure {
-    String color;
+enum Color {
+    WHITE, BLACK, NONE;
+}
 
-    public Figure(String color) {
-        this.color = color;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public abstract String getSymbol();
+interface Figure {
+    Color getColor();
+    String getSymbol();
 }

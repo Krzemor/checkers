@@ -5,14 +5,12 @@ import java.util.List;
 
 public class Board {
     private List<BoardRow> rows;
-    private int size;
 
-    public Board(int size) {
-        this.size = size;
+    public Board() {
         rows = new ArrayList<>();
 
-        for (int i = 0; i < size; i++) {
-            rows.add(new BoardRow(size));
+        for (int i = 0; i < 8; i++) {
+            rows.add(new BoardRow());
         }
     }
 
@@ -24,18 +22,17 @@ public class Board {
         rows.get(row).setFigure(col, figure);
     }
 
+    @Override
     public String toString() {
-        StringBuilder str = new StringBuilder();
-
-        str.append("= " + "=".repeat(size * 3) + " =\n");
+        String output = "=========================\n";
         for (BoardRow row : rows) {
-            str.append("| ");
+            output += "|";
             for (Figure figure : row.getFigures()) {
-                str.append(figure.getSymbol()).append(" |");
+                output += figure.getSymbol() + "|";
             }
-            str.append("\n");
-            str.append("- ").append("-".repeat(size * 3)).append(" -\n");
+            output += "\n";
+            output += "-------------------------\n";
         }
-        return str.toString();
+        return output;
     }
 }
